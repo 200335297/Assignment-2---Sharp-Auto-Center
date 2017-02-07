@@ -16,5 +16,10 @@ namespace Assignment_2_Sharp_Auto_Center
         {
             InitializeComponent();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

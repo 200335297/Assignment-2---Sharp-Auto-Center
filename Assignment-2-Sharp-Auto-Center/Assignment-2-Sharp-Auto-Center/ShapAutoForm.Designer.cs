@@ -1,6 +1,6 @@
 ﻿namespace Assignment_2_Sharp_Auto_Center
 {
-    partial class Form1
+    partial class sharpAuoForm
     {
         /// <summary>
         /// Required designer variable.

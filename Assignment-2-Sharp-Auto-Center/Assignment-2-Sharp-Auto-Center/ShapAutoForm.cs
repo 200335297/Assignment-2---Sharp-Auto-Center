@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Assignment_2_Sharp_Auto_Center
 {
-    public partial class Form1 : Form
+    public partial class sharpAuoForm : Form
     {
-        public Form1()
+        public sharpAuoForm()
         {
             InitializeComponent();
         }

@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BasePriceTextBox = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -56,13 +56,15 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripButton = new System.Windows.Forms.ToolStripMenuItem();
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.AmountDueTextBox = new System.Windows.Forms.TextBox();
+            this.SharpFormFontDialog = new System.Windows.Forms.FontDialog();
+            this.SharpcolorDialog = new System.Windows.Forms.ColorDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -127,12 +129,13 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Trade-in Allowance : ";
             // 
-            // textBox1
+            // BasePriceTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(174, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(126, 20);
-            this.textBox1.TabIndex = 6;
+            this.BasePriceTextBox.Location = new System.Drawing.Point(174, 39);
+            this.BasePriceTextBox.MinimumSize = new System.Drawing.Size(10, 0);
+            this.BasePriceTextBox.Name = "BasePriceTextBox";
+            this.BasePriceTextBox.Size = new System.Drawing.Size(126, 20);
+            this.BasePriceTextBox.TabIndex = 6;
             // 
             // textBox2
             // 
@@ -313,7 +316,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // menuToolStripMenuItem
@@ -321,7 +324,7 @@
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.calculateToolStripMenuItem,
             this.clearToolStripMenuItem,
-            this.fontToolStripMenuItem,
+            this.fontToolStripButton,
             this.colorToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -330,26 +333,28 @@
             // calculateToolStripMenuItem
             // 
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calculateToolStripMenuItem.Text = "Calculate";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
-            // fontToolStripMenuItem
+            // fontToolStripButton
             // 
-            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripButton.Name = "fontToolStripButton";
+            this.fontToolStripButton.Size = new System.Drawing.Size(152, 22);
+            this.fontToolStripButton.Text = "Font";
+            this.fontToolStripButton.Click += new System.EventHandler(this.fontButton_Clicked);
             // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.Color_clicked);
             // 
             // editToolStripMenuItem
             // 
@@ -362,7 +367,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // menuStrip1
@@ -387,20 +392,26 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Amount Due : ";
             // 
-            // textBox7
+            // AmountDueTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(174, 288);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(126, 20);
-            this.textBox7.TabIndex = 19;
+            this.AmountDueTextBox.Location = new System.Drawing.Point(174, 288);
+            this.AmountDueTextBox.Name = "AmountDueTextBox";
+            this.AmountDueTextBox.ReadOnly = true;
+            this.AmountDueTextBox.Size = new System.Drawing.Size(126, 20);
+            this.AmountDueTextBox.TabIndex = 19;
             // 
-            // Form1
+            // SharpFormFontDialog
+            // 
+            this.SharpFormFontDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SharpFormFontDialog.MaxSize = 24;
+            this.SharpFormFontDialog.MinSize = 10;
+            // 
+            // sharpAuoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 397);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.AmountDueTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -412,7 +423,7 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BasePriceTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -422,7 +433,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "sharpAuoForm";
             this.Text = "Auto Center";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -443,7 +454,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox BasePriceTextBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
@@ -465,13 +476,15 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox AmountDueTextBox;
+        private System.Windows.Forms.ColorDialog SharpcolorDialog;
+        private System.Windows.Forms.FontDialog SharpFormFontDialog;
     }
 }
 

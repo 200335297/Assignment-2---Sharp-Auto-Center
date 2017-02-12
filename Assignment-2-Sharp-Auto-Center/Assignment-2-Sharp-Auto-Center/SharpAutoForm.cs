@@ -15,7 +15,7 @@ namespace Assignment_2_Sharp_Auto_Center
         //constants
         public const double StereoSystem = 425.76, LeatherInterior = 987.41,
             ComputerNavigation = 1741.23, Standard = 0.0, Pearlized = 345.72,
-            CustomizedDetailing = 599.99, TaxeRate = 13.0;
+            CustomizedDetailing = 599.99, TaxeRate = 0.13;
 
         private double _val = 0.0;
     
@@ -25,10 +25,19 @@ namespace Assignment_2_Sharp_Auto_Center
             if (Isnumberandnegative(BasePriceTextBox.Text))
             {
                 textBox2.Text = (this._val + Convert.ToDouble(BasePriceTextBox.Text)).ToString();
+                textBox4.Text = System.Math.Round((Convert.ToDouble(textBox2.Text) * TaxeRate), 2).ToString();
+
+                textBox6.Text = System.Math.Round((Convert.ToDouble(textBox2.Text) + Convert.ToDouble(textBox4.Text)),2).ToString();
+
+                if (Isnumberandnegative(textBox5.Text))
+                {
+                    AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)),2).ToString();
+                }
             }
 
 
         }
+
 
         private bool Isnumberandnegative(string value)
         {

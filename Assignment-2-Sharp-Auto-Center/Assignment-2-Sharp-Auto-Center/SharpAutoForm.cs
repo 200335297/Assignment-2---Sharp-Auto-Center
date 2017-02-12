@@ -63,6 +63,7 @@ namespace Assignment_2_Sharp_Auto_Center
                     this.messagefunction("Incorrect Trade allowance value", "Error");
                  
                     textBox5.Text = "0";
+                    AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)), 2).ToString();
                 }
             }else
             {
@@ -174,7 +175,7 @@ namespace Assignment_2_Sharp_Auto_Center
         /// <param name="e"></param>
         private void AboutButtonClicked(object sender, EventArgs e)
         {
-            this.messagefunction("SharpAutoForm used to calculate", "About");
+            this.messagefunction("App name: -SharpAutoForm \n"+ "APP description: -This program calculates the amount due on a New or Used Vehicle", "About");
         }
 
         /// <summary>

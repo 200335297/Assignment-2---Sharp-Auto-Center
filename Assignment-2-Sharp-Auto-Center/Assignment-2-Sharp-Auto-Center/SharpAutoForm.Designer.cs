@@ -1,6 +1,6 @@
 ﻿namespace Assignment_2_Sharp_Auto_Center
 {
-    partial class sharpAuoForm
+    partial class sharpAutoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -190,7 +190,7 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Additional Items";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            
             // 
             // checkBox3
             // 
@@ -301,6 +301,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this._ClickClearfunction);
             // 
             // button3
             // 
@@ -324,8 +325,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.Exit_ApplicationClicked);
             // 
             // menuToolStripMenuItem
             // 
@@ -341,26 +343,28 @@
             // calculateToolStripMenuItem
             // 
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calculateToolStripMenuItem.Text = "Calculate";
+            this.calculateToolStripMenuItem.Click += new System.EventHandler(this._CalculateClicked);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this._ClickClearfunction);
             // 
             // fontToolStripButton
             // 
             this.fontToolStripButton.Name = "fontToolStripButton";
-            this.fontToolStripButton.Size = new System.Drawing.Size(123, 22);
+            this.fontToolStripButton.Size = new System.Drawing.Size(152, 22);
             this.fontToolStripButton.Text = "Font";
             this.fontToolStripButton.Click += new System.EventHandler(this.fontButton_Clicked);
             // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.colorToolStripMenuItem.Text = "Color";
             this.colorToolStripMenuItem.Click += new System.EventHandler(this.Color_clicked);
             // 
@@ -375,8 +379,9 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutButtonClicked);
             // 
             // menuStrip1
             // 

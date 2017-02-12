@@ -10,8 +10,16 @@ using System.Windows.Forms;
 
 namespace Assignment_2_Sharp_Auto_Center
 {
-    public partial class sharpAuoForm : Form
+    public partial class sharpAutoForm : Form
     {
+
+        //variables
+        DialogResult result;
+        public sharpAutoForm()
+        {
+            InitializeComponent();
+        }
+
         //constants
         public const double StereoSystem = 425.76, LeatherInterior = 987.41,
             ComputerNavigation = 1741.23, Standard = 0.0, Pearlized = 345.72,
@@ -32,7 +40,13 @@ namespace Assignment_2_Sharp_Auto_Center
                 if (Isnumberandnegative(textBox5.Text))
                 {
                     AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)),2).ToString();
+                }else
+                {
+                    this.messagefunction("Incoorect Trade allowance value", "Error");
                 }
+            }else
+            {
+                this.messagefunction("Incoorect Base price Value", "Error");
             }
 
 
@@ -44,7 +58,7 @@ namespace Assignment_2_Sharp_Auto_Center
             double _value = 0.0;
             if (Double.TryParse(value, out _value))
             {
-                if (_value > 0)
+                if (_value >= 0)
                 {
                     return true;
                 }
@@ -64,6 +78,43 @@ namespace Assignment_2_Sharp_Auto_Center
         private void Exit_ApplicationClicked(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void _ClickClearfunction(object sender, EventArgs e)
+        {
+            BasePriceTextBox.Text = String.Empty;
+            textBox2.Text = String.Empty;
+            textBox3.Text = String.Empty;
+            textBox4.Text = String.Empty;
+            textBox6.Text = String.Empty;
+            textBox5.Text = "0";
+            AmountDueTextBox.Text = String.Empty;
+            this._checkboxclear();
+            radioButton1.Checked = true;
+
+ }
+        private void _checkboxclear()
+        {
+            foreach (Control uncheck in groupBox1.Controls)
+            {
+                if (uncheck is CheckBox)
+                {
+                    CheckBox uncheck1 = uncheck as CheckBox;
+                    uncheck1.Checked = false;
+                    
+                }
+            }
+                
+        }
+
+        private void messagefunction(string message, string val)
+        {
+            MessageBox.Show(message, val);
+        }
+
+        private void AboutButtonClicked(object sender, EventArgs e)
+        {
+            this.messagefunction("SharpAutoForm used to calculate", "About");
         }
 
         private void RadioandCheckboxButtonClicked(object sender, EventArgs e)
@@ -100,18 +151,6 @@ namespace Assignment_2_Sharp_Auto_Center
 
         }
 
-
-        //variables
-        DialogResult result;
-        public sharpAuoForm()
-        {
-            InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void fontButton_Clicked(object sender, EventArgs e)
         {

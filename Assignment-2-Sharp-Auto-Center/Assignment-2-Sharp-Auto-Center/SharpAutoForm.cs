@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * App name :- SharpAutoForm
+ * Author's name :- Gowtham Talluri
+ * Student ID :- 200335297
+ * App Creation Date :- 2017-02-12
+ * APP description :- "This program calculates the amount due on a New or Used Vehicle"
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,21 +22,31 @@ namespace Assignment_2_Sharp_Auto_Center
     {
 
         //variables
-        DialogResult result;
-        public sharpAutoForm()
-        {
-            InitializeComponent();
-        }
+        public DialogResult result;
 
         //constants
         public const double StereoSystem = 425.76, LeatherInterior = 987.41,
             ComputerNavigation = 1741.23, Standard = 0.0, Pearlized = 345.72,
             CustomizedDetailing = 599.99, TaxeRate = 0.13;
 
+        //private value variable
         private double _val = 0.0;
-    
 
-        private void _CalculateClicked(object sender, EventArgs e)
+        //create a reference to the previous form
+        public Form previousForm;
+
+        //default constructor
+        public sharpAutoForm()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Event Handler calculate button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+      private void _CalculateClicked(object sender, EventArgs e)
         {
             if (Isnumberandnegative(BasePriceTextBox.Text))
             {
@@ -42,17 +60,23 @@ namespace Assignment_2_Sharp_Auto_Center
                     AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)),2).ToString();
                 }else
                 {
-                    this.messagefunction("Incoorect Trade allowance value", "Error");
+                    this.messagefunction("Incorrect Trade allowance value", "Error");
+                 
+                    textBox5.Text = "0";
                 }
             }else
             {
-                this.messagefunction("Incoorect Base price Value", "Error");
+                this.messagefunction("Incorrect Base price Value", "Error");
+               this._ClickClearfunction(sender, e);
             }
 
 
         }
 
-
+        /// <summary>
+        /// To check if user entered string or negative umber
+        /// </summary>
+        /// <param name="value"></param>
         private bool Isnumberandnegative(string value)
         {
             double _value = 0.0;
@@ -75,10 +99,9 @@ namespace Assignment_2_Sharp_Auto_Center
 
         }
 
-        private void Exit_ApplicationClicked(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        /// <summary>
+        /// This method clears the sharpautoform app and resets the variables
+        /// </summary>
 
         private void _ClickClearfunction(object sender, EventArgs e)
         {
@@ -93,7 +116,38 @@ namespace Assignment_2_Sharp_Auto_Center
             radioButton1.Checked = true;
 
  }
-        private void _checkboxclear()
+        
+
+        private void sharpAutoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           result = MessageBox.Show("Are You Sure?", "Confirm",
+             MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                this.previousForm.Close();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+
+        /// <summary>
+        /// Event Handler for exit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExitbuttonClicked(object sender, EventArgs e)
+        {
+            this.previousForm.Close();
+        }
+        /// <summary>
+        /// clears all varaibles and sets to default
+        /// </summary>
+      
+      private void _checkboxclear()
         {
             foreach (Control uncheck in groupBox1.Controls)
             {
@@ -106,17 +160,28 @@ namespace Assignment_2_Sharp_Auto_Center
             }
                 
         }
-
+        
+        //message function
         private void messagefunction(string message, string val)
         {
             MessageBox.Show(message, val);
         }
 
+        /// <summary>
+        /// Event Handler for about button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AboutButtonClicked(object sender, EventArgs e)
         {
             this.messagefunction("SharpAutoForm used to calculate", "About");
         }
 
+        /// <summary>
+        /// Event Handler for checkbox and radio buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioandCheckboxButtonClicked(object sender, EventArgs e)
         {
             this._val = 0.0;
@@ -151,8 +216,12 @@ namespace Assignment_2_Sharp_Auto_Center
 
         }
 
-
-        private void fontButton_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Event Handler for font button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+      private void fontButton_Clicked(object sender, EventArgs e)
         {
             
 
@@ -165,6 +234,11 @@ namespace Assignment_2_Sharp_Auto_Center
             }
         }
 
+        /// <summary>
+        /// Event Handler for color button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Color_clicked(object sender, EventArgs e)
         {
             result=SharpcolorDialog.ShowDialog();

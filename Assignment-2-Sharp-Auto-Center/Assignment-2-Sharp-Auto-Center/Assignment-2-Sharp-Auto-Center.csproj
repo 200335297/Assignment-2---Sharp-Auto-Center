@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapAutoForm.cs">
+    <Compile Include="SharpAutoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShapAutoForm.Designer.cs">
-      <DependentUpon>ShapAutoForm.cs</DependentUpon>
+    <Compile Include="SharpAutoForm.Designer.cs">
+      <DependentUpon>SharpAutoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,8 +63,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ShapAutoForm.resx">
-      <DependentUpon>ShapAutoForm.cs</DependentUpon>
+    <EmbeddedResource Include="SharpAutoForm.resx">
+      <DependentUpon>SharpAutoForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

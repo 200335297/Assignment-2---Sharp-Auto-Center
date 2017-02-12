@@ -132,7 +132,7 @@
             // BasePriceTextBox
             // 
             this.BasePriceTextBox.Location = new System.Drawing.Point(174, 39);
-            this.BasePriceTextBox.MinimumSize = new System.Drawing.Size(10, 0);
+            this.BasePriceTextBox.MinimumSize = new System.Drawing.Size(10, 4);
             this.BasePriceTextBox.Name = "BasePriceTextBox";
             this.BasePriceTextBox.Size = new System.Drawing.Size(126, 20);
             this.BasePriceTextBox.TabIndex = 6;
@@ -202,6 +202,7 @@
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "Computer Navigation";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.RadioandCheckboxButtonClicked);
             // 
             // checkBox2
             // 
@@ -213,6 +214,7 @@
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "Leather Interior";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.RadioandCheckboxButtonClicked);
             // 
             // checkBox1
             // 
@@ -224,6 +226,7 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Stereo System";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.RadioandCheckboxButtonClicked);
             // 
             // groupBox2
             // 
@@ -249,6 +252,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Customized Detailing";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.RadioandCheckboxButtonClicked);
             // 
             // radioButton2
             // 
@@ -261,6 +265,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Pearlized";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioandCheckboxButtonClicked);
             // 
             // radioButton1
             // 
@@ -274,6 +279,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Standard";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioandCheckboxButtonClicked);
             // 
             // button1
             // 
@@ -284,6 +290,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Calculate";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this._CalculateClicked);
             // 
             // button2
             // 
@@ -304,6 +311,7 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Exit_ApplicationClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -316,7 +324,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // menuToolStripMenuItem
@@ -333,26 +341,26 @@
             // calculateToolStripMenuItem
             // 
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.calculateToolStripMenuItem.Text = "Calculate";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
             // fontToolStripButton
             // 
             this.fontToolStripButton.Name = "fontToolStripButton";
-            this.fontToolStripButton.Size = new System.Drawing.Size(152, 22);
+            this.fontToolStripButton.Size = new System.Drawing.Size(123, 22);
             this.fontToolStripButton.Text = "Font";
             this.fontToolStripButton.Click += new System.EventHandler(this.fontButton_Clicked);
             // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.colorToolStripMenuItem.Text = "Color";
             this.colorToolStripMenuItem.Click += new System.EventHandler(this.Color_clicked);
             // 
@@ -367,7 +375,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // menuStrip1

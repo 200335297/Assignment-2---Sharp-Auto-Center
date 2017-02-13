@@ -39,6 +39,7 @@ namespace Assignment_2_Sharp_Auto_Center
         public sharpAutoForm()
         {
             InitializeComponent();
+            this.clear();
         }
 
         /// <summary>
@@ -71,13 +72,13 @@ namespace Assignment_2_Sharp_Auto_Center
                 }else
                 {
                     this.messagefunction("Base price value cannot be zero ", "Error");
-                    this._ClickClearfunction(sender, e);
+                    this.clear();
 
                 }
             }else
             {
                 this.messagefunction("Incorrect Base price Value", "Error");
-               this._ClickClearfunction(sender, e);
+                this.clear();
             }
 
 
@@ -108,6 +109,17 @@ namespace Assignment_2_Sharp_Auto_Center
 
 
         }
+        //clear specific fields
+        private void clear()
+        {
+            BasePriceTextBox.Text = String.Empty;
+            textBox2.Text = String.Empty;
+            textBox4.Text = String.Empty;
+            textBox6.Text = String.Empty;
+            textBox5.Text = "0";
+            AmountDueTextBox.Text = String.Empty;
+
+        }
 
         /// <summary>
         /// This method clears the sharpautoform app and resets the variables
@@ -115,13 +127,11 @@ namespace Assignment_2_Sharp_Auto_Center
 
         private void _ClickClearfunction(object sender, EventArgs e)
         {
-            BasePriceTextBox.Text = String.Empty;
-            textBox2.Text = String.Empty;
+
+            this.clear();
             textBox3.Text = String.Empty;
-            textBox4.Text = String.Empty;
-            textBox6.Text = String.Empty;
-            textBox5.Text = "0";
-            AmountDueTextBox.Text = String.Empty;
+            
+            
             this._checkboxclear();
             radioButton1.Checked = true;
 

@@ -50,20 +50,29 @@ namespace Assignment_2_Sharp_Auto_Center
         {
             if (Isnumberandnegative(BasePriceTextBox.Text))
             {
-                textBox2.Text = (this._val + Convert.ToDouble(BasePriceTextBox.Text)).ToString();
-                textBox4.Text = System.Math.Round((Convert.ToDouble(textBox2.Text) * TaxeRate), 2).ToString();
-
-                textBox6.Text = System.Math.Round((Convert.ToDouble(textBox2.Text) + Convert.ToDouble(textBox4.Text)),2).ToString();
-
-                if (Isnumberandnegative(textBox5.Text))
+                if (Convert.ToDouble(BasePriceTextBox.Text) > 0)
                 {
-                    AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)),2).ToString();
+                    textBox2.Text = (this._val + Convert.ToDouble(BasePriceTextBox.Text)).ToString();
+                    textBox4.Text = System.Math.Round((Convert.ToDouble(textBox2.Text) * TaxeRate), 2).ToString();
+
+                    textBox6.Text = System.Math.Round((Convert.ToDouble(textBox2.Text) + Convert.ToDouble(textBox4.Text)), 2).ToString();
+
+                    if (Isnumberandnegative(textBox5.Text))
+                    {
+                        AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)), 2).ToString();
+                    }
+                    else
+                    {
+                        this.messagefunction("Incorrect Trade allowance value", "Error");
+
+                        textBox5.Text = "0";
+                        AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)), 2).ToString();
+                    }
                 }else
                 {
-                    this.messagefunction("Incorrect Trade allowance value", "Error");
-                 
-                    textBox5.Text = "0";
-                    AmountDueTextBox.Text = System.Math.Round((Convert.ToDouble(textBox6.Text) - Convert.ToDouble(textBox5.Text)), 2).ToString();
+                    this.messagefunction("Base price value cannot be zero ", "Error");
+                    this._ClickClearfunction(sender, e);
+
                 }
             }else
             {
